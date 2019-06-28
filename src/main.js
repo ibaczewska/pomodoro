@@ -1,13 +1,41 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
 
-Vue.config.productionTip = false
-
 /* eslint-disable no-new */
+
+/**
+ * Adds left 0 to the number if it is lower than 10
+ *
+ * @param {number} value
+ * @returns {string}
+ */
+Vue.filter('leftpad', (value) => {
+  if (value >= 10) {
+    return value
+  }
+
+  return '0' + value;
+})
+/**
+ * Returns an uppercased version of the given string
+ *
+ * @param {string} value
+ * @returns {string}
+ */
+Vue.filter('uppercase', (value) => {
+  return value.toUpperCase();
+})
+/**
+ * Adds a space from the right side of the given string
+ *
+ * @param {string} value
+ * @returns {string}
+ */
+Vue.filter('addspace', (value) => {
+  return value + ' ';
+})
+
 new Vue({
-  el: '#app',
-  components: { App },
-  template: '<App/>'
+  el: 'body',
+  components: { App }
 })
