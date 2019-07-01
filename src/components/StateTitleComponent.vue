@@ -19,9 +19,11 @@
         restingtitle: 'Rest!'
       }
     },
-    computed: mapGetters({
-      isworking: 'isWorking'
-    })
+    computed: {
+      ...mapGetters({
+        isworking: 'isWorking'
+      })
+    }
   }
 </script>
 

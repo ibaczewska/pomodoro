@@ -37,6 +37,7 @@ export default {
     state.stopped = true
     state.paused = false
     state.started = false
+    clearInterval(state.interval)
     togglePomodoro(state, true)
   }
 }

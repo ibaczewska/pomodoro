@@ -6,16 +6,15 @@
   </div>
 </template>
 
-<style scoped>
-</style>
-
 <script>
   import { mapGetters } from 'vuex'
 
   export default {
-    computed: mapGetters({
-      min: 'getMinutes',
-      sec: 'getSeconds'
-    })
+    computed: {
+      ...mapGetters({
+        min: 'getMinutes',
+        sec: 'getSeconds'
+      })
+    }
   }
 </script>
