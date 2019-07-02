@@ -1,6 +1,6 @@
 # pomodoro
 
-> A Vue.js project
+> A Vue.js project to train my skills in Vuex
 
 ## Build Setup
 
