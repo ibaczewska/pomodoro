@@ -3,6 +3,7 @@
     <h2>
       <span>{{ 'Pomodoro' | uppercase | addspace }}</span>
       <controls-component></controls-component>
+      <modal/>
     </h2>
     <state-title-component v-bind:isworking="isworking"></state-title-component>
     <countdown-component></countdown-component>
@@ -17,6 +18,7 @@ import ControlsComponent from './components/ControlsComponent'
 import CountdownComponent from './components/CountdownComponent'
 import StateTitleComponent from './components/StateTitleComponent'
 import KittensComponent from './components/KittensComponent'
+import Modal from './components/SettingModal'
 import store from './vuex/store'
 import { mapGetters } from 'vuex'
 
@@ -25,7 +27,8 @@ export default {
     ControlsComponent,
     CountdownComponent,
     KittensComponent,
-    StateTitleComponent
+    StateTitleComponent,
+    Modal
   },
   computed: {
     ...mapGetters({
