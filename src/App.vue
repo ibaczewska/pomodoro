@@ -20,14 +20,13 @@
         <div slot="header">Set custom times</div>
         <div slot="body">
           <label>Pomodoro</label>
-          <input value="pomodoro"/>
+          <input :value="pomodoro"/>
           <p>{{pomodoro}}</p>
           <label>Short break</label>
-          <input value="shortBreak"/>
+          <input :value="shortBreak"/>
           <p>{{shortBreak}}</p>
         </div>
         <div slot="footer">
-          <button>Close</button>
           <button>Save</button>
         </div>
       </modal>
@@ -50,9 +49,7 @@ export default {
 
   data () {
     return {
-      showModal: false,
-      pomodoro: '',
-      short: ''
+      showModal: false
     }
   },
 
