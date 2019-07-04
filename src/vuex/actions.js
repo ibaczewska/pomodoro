@@ -9,6 +9,9 @@ export default {
   },
   stop: ({ commit }) => {
     commit(types.STOP)
+  },
+  update: ({ commit }) => {
+    commit(types.UPDATE)
   }
 }
 

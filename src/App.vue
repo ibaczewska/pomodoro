@@ -18,17 +18,28 @@
     <transition name="fade">
       <modal v-if="showModal" @close="modalClose">
         <div slot="header">Set custom times</div>
-        <div slot="body">
-          <label>Pomodoro</label>
-          <input :value="pomodoro"/>
-          <p>{{pomodoro}}</p>
-          <label>Short break</label>
-          <input :value="shortBreak"/>
-          <p>{{shortBreak}}</p>
-        </div>
-        <div slot="footer">
-          <button>Save</button>
-        </div>
+
+<div slot="body">
+        <form>
+
+            <label>Pomodoro</label>
+            <br>
+            <input v-model="pomodoro" @change="update"/>
+            <button @click.prevent="update">-</button>
+            <button @click.prevent="update">+</button>
+            <br>
+            <label>Short break</label>
+            <br>
+            <input v-model="shortBreak"/>
+            <button @click.prevent="update">-</button>
+            <button @click.prevent="update">+</button>
+            <br>
+            <br>
+
+            <button @click="save">Save</button>
+        </form>
+</div>
+
       </modal>
     </transition>
 
@@ -36,7 +47,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 import ControlsComponent from './components/ControlsComponent'
 import CountdownComponent from './components/CountdownComponent'
@@ -70,11 +81,18 @@ export default {
   },
 
   methods: {
+    ...mapActions([
+      'update'
+    ]),
+
     modalOpen () {
       this.showModal = true
     },
     modalClose () {
       this.showModal = false
+    },
+    save () {
+      this.modalClose()
     }
   },
 
@@ -88,5 +106,8 @@ export default {
   }
   .fade-enter, .fade-leave-active {
     opacity: 0
+  }
+  input {
+    max-width: 50%;
   }
 </style>

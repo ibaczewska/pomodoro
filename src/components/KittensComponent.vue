@@ -1,5 +1,5 @@
 <template>
-  <div class="well">
+  <div>
     <img :src="catimgsrc" />
   </div>
 </template>

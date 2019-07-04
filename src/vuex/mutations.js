@@ -20,6 +20,12 @@ function tick (state) {
   }
 }
 
+function update (state, value) {
+  state.pomodoro = parseInt(state.pomodoro)
+  if (value > 0 || state.pomodoro > 1) {
+    state.pomodoro += 1
+  }
+}
 export default {
   [types.START] (state) {
     state.started = true
@@ -39,5 +45,9 @@ export default {
     state.started = false
     clearInterval(state.interval)
     togglePomodoro(state, true)
+  },
+  [types.UPDATE] (state) {
+    update(state, 1)
   }
+
 }
