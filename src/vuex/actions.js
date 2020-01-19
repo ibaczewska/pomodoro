@@ -10,8 +10,17 @@ export default {
   stop: ({ commit }) => {
     commit(types.STOP)
   },
-  update: ({ commit }) => {
-    commit(types.UPDATE)
+  addPomodoro: ({ commit }) => {
+    commit(types.ADD_POMODORO)
+  },
+  subtractPomodoro: ({ commit }) => {
+    commit(types.SUBTRACT_POMODORO)
+  },
+  addBreak: ({ commit }) => {
+    commit(types.ADD_BREAK)
+  },
+  subtractBreak: ({ commit }) => {
+    commit(types.SUBTRACT_BREAK)
   }
 }
 

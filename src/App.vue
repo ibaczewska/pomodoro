@@ -20,23 +20,23 @@
         <div slot="header">Set custom times</div>
 
 <div slot="body">
-        <form>
+        <form @submit.prevent="saveSettings">
 
             <label>Pomodoro</label>
             <br>
-            <input v-model="pomodoro" @change="update"/>
-            <button @click.prevent="update">-</button>
-            <button @click.prevent="update">+</button>
+            <input :value="pomodoro"/>
+            <button @click.prevent="subtractPomodoro">-</button>
+            <button @click.prevent="addPomodoro">+</button>
             <br>
             <label>Short break</label>
             <br>
-            <input v-model="shortBreak"/>
-            <button @click.prevent="update">-</button>
-            <button @click.prevent="update">+</button>
+            <input :value="shortBreak"/>
+            <button @click.prevent="subtractBreak">-</button>
+            <button @click.prevent="addBreak">+</button>
             <br>
             <br>
 
-            <button @click="save">Save</button>
+            <button type="submit">Save</button>
         </form>
 </div>
 
@@ -82,7 +82,10 @@ export default {
 
   methods: {
     ...mapActions([
-      'update'
+      'addPomodoro',
+      'subtractPomodoro',
+      'addBreak',
+      'subtractBreak'
     ]),
 
     modalOpen () {
@@ -91,7 +94,7 @@ export default {
     modalClose () {
       this.showModal = false
     },
-    save () {
+    saveSettings () {
       this.modalClose()
     }
   },

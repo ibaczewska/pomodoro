@@ -20,10 +20,17 @@ function tick (state) {
   }
 }
 
-function update (state, value) {
+function updatePomodoro (state, value) {
   state.pomodoro = parseInt(state.pomodoro)
-  if (value > 0 || state.pomodoro > 1) {
-    state.pomodoro += 1
+  if (value >= 0 || state.pomodoro > 1) {
+    state.pomodoro += value
+  }
+}
+
+function updateBreak (state, value) {
+  state.shortBreak = parseInt(state.shortBreak)
+  if (value >= 0 || state.shortBreak > 1) {
+    state.shortBreak += value
   }
 }
 export default {
@@ -46,8 +53,17 @@ export default {
     clearInterval(state.interval)
     togglePomodoro(state, true)
   },
-  [types.UPDATE] (state) {
-    update(state, 1)
+  [types.ADD_POMODORO] (state) {
+    updatePomodoro(state, 1)
+  },
+  [types.SUBTRACT_POMODORO] (state) {
+    updatePomodoro(state, -1)
+  },
+  [types.ADD_BREAK] (state) {
+    updateBreak(state, 1)
+  },
+  [types.SUBTRACT_BREAK] (state) {
+    updateBreak(state, -1)
   }
 
 }
